@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "O3cCD5TU7GP0O1rS7KmeXQ3smXsZu2v9JQrfxFKYksN6iaq9h8vqVpB/X2dXwuw5FnHmDM2tXCMefjeZVH13Rg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\MySQL\\MySQL\\MySQL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\mysqlconnector\\2.1.13\\mysqlconnector.2.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}
