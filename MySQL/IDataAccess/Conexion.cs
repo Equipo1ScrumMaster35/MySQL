@@ -24,10 +24,18 @@ namespace MySQL.Data
         {
             try{
                 conexion = new MySqlConnection(cadenaMySQL);
-                //string mess = "Conexion exitosa";
-            }catch(Exception ex)
+
+                if(conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+              
+               
+            }
+            catch(Exception ex)
             {
                 string error = ex.Message;
+
             }
 
             return conexion;
