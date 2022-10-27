@@ -1,0 +1,35 @@
+﻿@model List<TipoDocumentoModel>
+@{
+    ViewData["Title"] = "ListarTipoDocumento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de tipo documento
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearTipoDocumento" asp-controller="TipoDocumento" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código tipo documento</th>
+                <th>Nombre tipo documento</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_tipodocumento</td>
+                        <td>@item.nom_tipodocumento</td>
+                        <td>
+                            <a asp-action="EditarTipoDocumento" asp-controller="TipoDocumento" asp-route-cod_tipodocumento="@item.cod_tipodocumento" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                            <a asp-action="EliminarTipoDocumento" asp-controller="TipoDocumento" asp-route-cod_tipodocumento="@item.cod_tipodocumento" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

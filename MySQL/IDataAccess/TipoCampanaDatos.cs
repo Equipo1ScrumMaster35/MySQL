@@ -5,18 +5,18 @@ using System.Data;
 
 namespace MySQL.IDataAccess
 {
-    public class PaisDatos
+    public class TipoCampanaDatos
     {
-        public List<PaisModel> Listar()
+        public List<TipoCampanaModel> Listar()
         {
-            var Lista = new List<PaisModel>();
+            var Lista = new List<TipoCampanaModel>();
             MySqlDataReader Resultado;
             MySqlConnection Conn = new MySqlConnection();
 
             try
             {
                 Conn = Conexion.getConexion().CrearConexion();
-                string consulta = "SELECT * FROM pais";
+                string consulta = "SELECT * FROM tipo_campana";
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
                 Conn.Open();
@@ -24,14 +24,14 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Lista.Add(new PaisModel()
+                    Lista.Add(new TipoCampanaModel()
                     {
-                        cod_pais = Convert.ToString(Resultado["cod_pais"]),
-                        nom_pais = Convert.ToString(Resultado["nom_pais"])
+                        cod_tipocampana = Convert.ToString(Resultado["cod_tipocampana"]),
+                        nom_tipocampana = Convert.ToString(Resultado["nom_tipocampana"])
                     });
 
                 }
-               
+
                 return Lista;
 
             }
@@ -46,14 +46,14 @@ namespace MySQL.IDataAccess
 
         }
 
-        public PaisModel Obtener(int cod_pais)
+        public TipoCampanaModel Obtener(int cod_tipocampana)
         {
-            var Pais = new PaisModel();
+            var TipoCampana = new TipoCampanaModel();
             MySqlConnection Conn = new MySqlConnection();
             MySqlDataReader Resultado;
             try
             {
-                string consulta = "SELECT * FROM pais WHERE cod_pais = '" + cod_pais + "'";
+                string consulta = "SELECT * FROM tipo_campana WHERE cod_tipocampana = '" + cod_tipocampana + "'";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
@@ -62,8 +62,8 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Pais.cod_pais = Convert.ToString(Resultado["cod_pais"]);
-                    Pais.nom_pais = Convert.ToString(Resultado["nom_pais"]);
+                    TipoCampana.cod_tipocampana = Convert.ToString(Resultado["cod_tipocampana"]);
+                    TipoCampana.nom_tipocampana = Convert.ToString(Resultado["nom_tipocampana"]);
                 };
 
             }
@@ -76,39 +76,10 @@ namespace MySQL.IDataAccess
                 if (Conn.State == ConnectionState.Open) Conn.Close();
             }
 
-            return Pais;
+            return TipoCampana;
         }
 
-        public bool Guardar(PaisModel Pais)
-        {
-            bool rpta;
-           
-            MySqlConnection Conn = new MySqlConnection();
-
-            try
-            {
-                string consulta = "INSERT INTO pais(cod_pais,nom_pais) VALUES ('"+Pais.cod_pais+"','"+Pais.nom_pais+"')";
-                Conn = Conexion.getConexion().CrearConexion();
-                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
-                Conn.Open();
-                Comand.ExecuteNonQuery();
-  
-                rpta = true;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                rpta = false;
-            }
-            finally
-            {
-                if (Conn.State == ConnectionState.Open) Conn.Close();
-            }
-            return rpta;
-        }
-
-        public bool Editar(PaisModel Pais)
+        public bool Guardar(TipoCampanaModel TipoCampana)
         {
             bool rpta;
 
@@ -116,7 +87,7 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "UPDATE pais SET nom_pais = '" + Pais.nom_pais + "' WHERE cod_pais = '" + Pais.cod_pais + "'";
+                string consulta = "INSERT INTO tipo_campana(nom_tipocampana) VALUES ('" + TipoCampana.nom_tipocampana + "')";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();
@@ -137,7 +108,7 @@ namespace MySQL.IDataAccess
             return rpta;
         }
 
-        public bool Eliminar(PaisModel Pais)
+        public bool Editar(TipoCampanaModel TipoCampana)
         {
             bool rpta;
 
@@ -145,7 +116,36 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "DELETE FROM pais WHERE cod_pais = '"+Pais.cod_pais+"' ";
+                string consulta = "UPDATE tipo_campana SET nom_tipocampana = '" + TipoCampana.nom_tipocampana + "' WHERE cod_tipocampana = '" + TipoCampana.cod_tipocampana + "'";
+                Conn = Conexion.getConexion().CrearConexion();
+                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
+                Conn.Open();
+                Comand.ExecuteNonQuery();
+
+                rpta = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                rpta = false;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+            return rpta;
+        }
+
+        public bool Eliminar(TipoCampanaModel TipoCampana)
+        {
+            bool rpta;
+
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+                string consulta = "DELETE FROM tipo_campana WHERE cod_tipocampana = '" + TipoCampana.cod_tipocampana + "' ";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();
@@ -166,5 +166,4 @@ namespace MySQL.IDataAccess
             return rpta;
         }
     }
-        
 }

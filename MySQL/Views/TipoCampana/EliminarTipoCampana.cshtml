@@ -1,0 +1,21 @@
+﻿@model TipoCampanaModel
+@{
+    ViewData["Title"] = "EliminarTipoCampana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar tipo de campaña
+    </div>
+    <div class="card-body">
+        <form asp-action="EliminarTipoCampana" asp-controller="TipoCampana" method="post">
+            <input asp-for="cod_tipocampana" type="hidden" class="form-control">
+            <div class="alert alert-danger" role="alert">
+                ¿Desea eliminar el tipo de campaña: @Html.DisplayTextFor(m=>m.nom_tipocampana)?
+            </div>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="ListarTipoCampana" asp-controller="TipoCampana" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

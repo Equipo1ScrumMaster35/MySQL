@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MySQL.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
     <header>
@@ -25,9 +26,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">Datos de fundación</a></li>
-                                <li><a class="dropdown-item" href="#">Tipos de documento</a></li>
-                                <li><a class="dropdown-item" href="#">Tipos de donante</a></li>
-                                <li><a asp-action="TipoProducto" asp-controller="TipoProducto" class="dropdown-item">Tipos de producto</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="TipoDocumento" asp-action="ListarTipoDocumento">Tipo de documento</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="TipoProducto" asp-action="ListarTipoProducto">Tipo de producto</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="TipoCampana" asp-action="ListarTipoCampana">Tipo de campaña</a></li>
                                 <li><a class="dropdown-item" href="#">Unidad de producto</a></li>
                             </ul>
                         </li>
@@ -36,7 +37,7 @@
                                 Productos
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a asp-action="Producto" asp-controller="Producto" class="dropdown-item">Productos</a></li>
+                                <li><a class="dropdown-item">Productos</a></li>
                                 <li><a class="dropdown-item" href="#">Stock productos</a></li>
                             </ul>
                         </li>

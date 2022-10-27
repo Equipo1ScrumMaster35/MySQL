@@ -1,0 +1,26 @@
+﻿@model TipoDocumentoModel
+@{
+    ViewData["Title"] = "CrearTipoDocumento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Tipo Documento
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearTipoDocumento" asp-controller="TipoDocumento" method="post">
+            <div class="form-group">
+                <label>Nombre tipo documento</label>
+                <input asp-for="nom_tipodocumento" type="text" class="form-control">
+                <span asp-validation-for="nom_tipodocumento" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarTipoDocumento" asp-controller="TipoDocumento" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+
+
+

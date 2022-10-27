@@ -78,7 +78,7 @@ namespace MySQL.Controllers
         [HttpPost]
         public IActionResult EliminarPais(PaisModel Pais)
         {
-            var respuesta = _PaisDatos.EliminarPais(Pais);
+            var respuesta = _PaisDatos.Eliminar(Pais);
 
             if (respuesta)
             {

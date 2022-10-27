@@ -1,12 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MySqlConnector;
+using NuGet.Protocol.Plugins;
 using System.Linq.Expressions;
 
 namespace MySQL.Data
 {
     public class Conexion
     {
-        private static Conexion Conn = null;
+        private static Conexion Conn = null; 
 
         public MySqlConnection CrearConexion()
         {
@@ -14,7 +15,13 @@ namespace MySQL.Data
 
             try
             {
-                Cadena.ConnectionString = "datasource=localhost;port=3306;username=root;password=123456;Database=donacionWeb";
+                var configurationBuilder = new ConfigurationBuilder();
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
+                configurationBuilder.AddJsonFile(path, false);
+
+                var root = configurationBuilder.Build();
+
+                Cadena = new MySqlConnection(root.GetConnectionString("CadenaMySQL"));
             }
             catch (Exception ex)
             {

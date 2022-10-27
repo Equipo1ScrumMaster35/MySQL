@@ -1,0 +1,36 @@
+﻿@model List<TipoCampanaModel>
+@{
+    ViewData["Title"] = "ListarTipoCampana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista tipo de campaña
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearTipoCampana" asp-controller="TipoCampana" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código tipo de campaña</th>
+                <th>Nombre tipo de campaña</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_tipocampana</td>
+                        <td>@item.nom_tipocampana</td>
+                        <td>
+                            <a asp-action="EditarTipoCampana" asp-controller="TipoCampana" asp-route-cod_tipocampana="@item.cod_tipocampana" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                            <a asp-action="EliminarTipoCampana" asp-controller="TipoCampana" asp-route-cod_tipocampana="@item.cod_tipocampana" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

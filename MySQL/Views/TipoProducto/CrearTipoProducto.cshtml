@@ -1,0 +1,23 @@
+﻿@model TipoProductoModel
+@{
+    ViewData["Title"] = "CrearTipoProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Tipo de Producto
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearTipoProducto" asp-controller="TipoProducto" method="post">
+            <div class="form-group">
+                <label>Nombre tipo de producto</label>
+                <input asp-for="nom_tipoproducto" type="text" class="form-control">
+                <span asp-validation-for="nom_tipoproducto" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarTipoProducto" asp-controller="TipoProducto" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

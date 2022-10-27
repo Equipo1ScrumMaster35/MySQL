@@ -1,0 +1,24 @@
+﻿@model TipoCampanaModel
+@{
+    ViewData["Title"] = "EditarTipoCampana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar tipo de campaña
+    </div>
+    <div class="card-body">
+        <form asp-action="EditarTipoCampana" asp-controller="TipoCampana" method="post">
+            <input asp-for="cod_tipocampana" type="hidden" class="form-control">
+            <div class="form-group">
+                <label>Nombre tipo de campaña</label>
+                <input asp-for="nom_tipocampana" type="text" class="form-control">
+                <span asp-validation-for="nom_tipocampana" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a asp-action="ListarTipoCampana" asp-controller="TipoCampana" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
