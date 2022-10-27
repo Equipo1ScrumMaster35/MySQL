@@ -6,39 +6,31 @@ namespace MySQL.Data
 {
     public class Conexion
     {
-        private MySqlConnection conexion;
-        private string cadenaMySQL = String.Empty;
-        private readonly IConfiguration Configuration;
+        private static Conexion Conn = null;
 
-        public Conexion(IConfiguration configuration)
+        public MySqlConnection CrearConexion()
         {
-            Configuration = configuration;
-        }
+            MySqlConnection Cadena = new MySqlConnection();
 
-        public Conexion()
-        {
-            cadenaMySQL = Configuration["CadenaMySQL"];
-        }
-
-        public MySqlConnection GetConnection()
-        {
-            try{
-                conexion = new MySqlConnection(cadenaMySQL);
-
-                if(conexion.State != System.Data.ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
-              
-               
-            }
-            catch(Exception ex)
+            try
             {
-                string error = ex.Message;
-
+                Cadena.ConnectionString = "datasource=localhost;port=3306;username=root;password=123456;Database=donacionWeb";
             }
+            catch (Exception ex)
+            {
+                Cadena = null;
+                throw ex;
+            }
+            return Cadena;
+        }
 
-            return conexion;
+        public static Conexion getConexion()
+        {
+            if (Conn == null)
+            {
+                Conn = new Conexion();
+            }
+            return Conn;
         }
     }
 }

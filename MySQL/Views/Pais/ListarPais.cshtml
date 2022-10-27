@@ -1,0 +1,34 @@
+﻿@model List<PaisModel>
+@{
+    ViewData["Title"] = "ListarPais";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Lista de paises
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearPais" asp-controller="Pais" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código país</th>
+                <th>Nombre país</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_pais</td>
+                        <td>@item.nom_pais</td>
+                        <td>
+                            <a asp-action="EditarPais" asp-controller="Pais" asp-route-cod_pais="@item.cod_pais" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                            <a asp-action="EliminarPais" asp-controller="Pais" asp-route-cod_pais="@item.cod_pais" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

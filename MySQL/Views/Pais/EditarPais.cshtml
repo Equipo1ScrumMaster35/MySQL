@@ -1,0 +1,24 @@
+﻿@model PaisModel
+@{
+    ViewData["Title"] = "EditarPais";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar país
+    </div>
+    <div class="card-body">
+        <form asp-action="EditarPais" asp-controller="Pais" method="post">
+            <input asp-for="cod_pais" type="hidden" class="form-control">
+            <div class="form-group">
+                <label>Nombre país</label>
+                <input asp-for="nom_pais" type="text" class="form-control">
+                <span asp-validation-for="nom_pais" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a asp-action="ListarPais" asp-controller="Pais" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
