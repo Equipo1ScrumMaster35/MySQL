@@ -1,0 +1,39 @@
+﻿@model CiudadModel
+
+@{
+    ViewData["Title"] = "CrearCiudad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Crear Ciudad
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearCiudad" asp-controller="Ciudad" method="post">
+            <div class="form-group">
+                <label>Código ciudad</label>
+                <input asp-for="cod_ciudad" type="text" class="form-control">
+                <span asp-validation-for="cod_ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Nombre ciudad</label>
+                <input asp-for="nom_ciudad" type="text" class="form-control">
+                <span asp-validation-for="nom_ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Coordinador ciudad</label>
+                <input asp-for="coordinador_ciudad" type="text" class="form-control">
+                <span asp-validation-for="coordinador_ciudad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>País</label>
+                    @Html.DropDownList("fk_codpais", ViewBag.ListaPais as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarCiudad" asp-controller="Ciudad" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

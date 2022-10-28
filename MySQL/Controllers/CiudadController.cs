@@ -1,0 +1,73 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using MySQL.IDataAccess;
+using MySQL.Models;
+
+namespace MySQL.Controllers
+{
+    public class CiudadController : Controller
+    {
+        CiudadDatos _CiudadDatos = new CiudadDatos();
+
+        public ActionResult ListarCiudad()
+        {
+            var Lista = _CiudadDatos.Listar();
+            return View(Lista);
+        }
+        //Aqui voy 
+        public IActionResult CrearCiudad()
+        {//Metodo para devolver la vista
+            ViewBag.ListaPais = new SelectList(_CiudadDatos.ListarPais(),"cod_pais","nom_pais");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CrearCiudad(CiudadModel Ciudad)
+        {//Metodo que recibe un objeto y lo guarda en la DB
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var respuesta = _CiudadDatos.Guardar(Ciudad);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarCiudad");
+            }
+            else
+            {
+                return View();
+            }
+            return View();
+        }
+
+        public IActionResult EditarCiudad(int cod_ciudad)
+        {
+            var Ciudad = _CiudadDatos.Obtener(cod_ciudad);
+            return View(Ciudad);
+        }
+
+        [HttpPost]
+        public IActionResult EditarCiudad(CiudadModel Ciudad)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var respuesta = _CiudadDatos.Editar(Ciudad);
+
+            if (respuesta)
+            {
+                return RedirectToAction("ListarProyecto");
+            }
+            else
+            {
+                return View();
+            }
+            return View();
+        }
+    }
+}

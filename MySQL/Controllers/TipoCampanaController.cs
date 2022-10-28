@@ -89,10 +89,5 @@ namespace MySQL.Controllers
             }
             return View();
         }
-
-
-
-
-
     }
 }

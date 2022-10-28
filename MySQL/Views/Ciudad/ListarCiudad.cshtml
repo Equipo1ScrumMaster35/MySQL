@@ -1,0 +1,39 @@
+﻿@model List<CiudadModel>
+@{
+    ViewData["Title"] = "ListarCiudad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de ciudades
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCiudad" asp-controller="Ciudad" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código ciudad</th>
+                <th>Nombre ciudad</th>
+                <th>Coordinador ciudad</th>
+                <th>País</th>
+                <th>Acción</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_ciudad</td>
+                        <td>@item.nom_ciudad</td>
+                        <td>@item.coordinador_ciudad</td>
+                        <td>@item.fk_codpais</td>
+                        <td>
+                            <a asp-action="EditarCiudad" asp-controller="Ciudad" asp-route-cod_pais="@item.cod_ciudad" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

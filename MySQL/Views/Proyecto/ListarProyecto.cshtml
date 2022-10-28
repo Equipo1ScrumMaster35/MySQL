@@ -1,0 +1,39 @@
+﻿@model List<ProyectoModel>
+@{
+    ViewData["Title"] = "ListarProyecto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de proyectos
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearProyecto" asp-controller="Proyecto" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código proyecto</th>
+                <th>Nombre proyecto</th>
+                <th>Descripción proyecto</th>
+                <th>Estado proyecto</th>
+                <th>Acción</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_proyecto</td>
+                        <td>@item.nom_proyecto</td>
+                        <td>@item.descripcion_proyecto</td>
+                        <td>@item.estado_proyecto</td>
+                        <td>
+                            <a asp-action="EditarProyecto" asp-controller="Proyecto" asp-route-cod_proyecto="@item.cod_proyecto" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

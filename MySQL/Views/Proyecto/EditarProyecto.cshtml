@@ -1,0 +1,37 @@
+﻿@model ProyectoModel
+@{
+    ViewData["Title"] = "EditarProyecto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Editar proyecto
+    </div>
+    <div class="card-body">
+        <form asp-action="EditarProyecto" asp-controller="Proyecto" method="post">
+            <input asp-for="cod_proyecto" type="hidden" class="form-control">
+            <div class="form-group">
+                <label>Nombre proyecto</label>
+                <input asp-for="nom_proyecto" type="text" class="form-control">
+                <span asp-validation-for="nom_proyecto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Descripción proyecto</label>
+                <input asp-for="descripcion_proyecto" type="text" class="form-control">
+                <span asp-validation-for="descripcion_proyecto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Estado proyecto</label>
+                <select asp-for="estado_proyecto" class="form-control">
+                    <option value="Activo" selected>Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                    <span asp-validation-for="estado_proyecto" class="text-danger"></span>
+                </select>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a asp-action="ListarProyecto" asp-controller="Proyecto" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
