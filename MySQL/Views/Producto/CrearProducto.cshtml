@@ -1,0 +1,28 @@
+﻿@model ProductoModel
+@{
+    ViewData["Title"] = "CrearProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Producto
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearProducto" asp-controller="Producto" method="post">
+            <div class="form-group">
+                <label>Nombre producto</label>
+                <input asp-for="nom_producto" type="text" class="form-control">
+                <span asp-validation-for="nom_producto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Tipo de producto</label>
+                @Html.DropDownList("fk_codtipoproducto", ViewBag.ListaTipo as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarProducto" asp-controller="Producto" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+

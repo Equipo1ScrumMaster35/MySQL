@@ -11,11 +11,6 @@
     <div class="card-body">
         <form asp-action="CrearProyecto" asp-controller="Proyecto" method="post">
             <div class="form-group">
-                <label>Código proyecto</label>
-                <input asp-for="cod_proyecto" type="text" class="form-control">
-                <span asp-validation-for="cod_proyecto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label>Nombre proyecto</label>
                 <input asp-for="nom_proyecto" type="text" class="form-control">
                 <span asp-validation-for="nom_proyecto" class="text-danger"></span>

@@ -1,0 +1,47 @@
+﻿@model List<IntegranteModel>
+@{
+    ViewData["Title"] = "ListarIntegrante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de integrantes
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearIntegrante" asp-controller="Integrante" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Número documento</th>
+                <th>Nombre</th>
+                <th>Fecha de nacimiento</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+                <th>Rol</th>
+                <th>Ciudad</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.doc_integrante</td>
+                        <td>@item.nom_integrante</td>
+                        <td>@item.fechanacimiento_integrante</td>
+                        <td>@item.telefono_integrante</td>
+                        <td>@item.direccion_integrante</td>
+                        <td>@item.estado_integrante</td>
+                        <td>@item.fk_codrol</td>
+                        <td>@item.fk_codciudad</td>
+                        <td>
+                            <a asp-action="EditarIntegrante" asp-controller="Integrante" asp-route-doc_integrante="@item.doc_integrante" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

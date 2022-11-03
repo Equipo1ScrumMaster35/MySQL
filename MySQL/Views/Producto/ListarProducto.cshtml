@@ -1,0 +1,37 @@
+﻿@model List<ProductoModel>
+@{
+    ViewData["Title"] = "ListarProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de productos
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearProducto" asp-controller="Producto" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código producto</th>
+                <th>Nombre producto</th>
+                <th>Tipo de producto</th>
+                <th>Acción</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_producto</td>
+                        <td>@item.nom_producto</td>
+                        <td>@item.fk_codtipoproducto</td>
+                        <td>
+                            <a asp-action="EditarProducto" asp-controller="Producto" asp-route-cod_producto="@item.cod_producto" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

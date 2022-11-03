@@ -91,7 +91,7 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "INSERT INTO proyecto(cod_proyecto,nom_proyecto,descripcion_proyecto,estado_proyecto) VALUES ('" + Proyecto.cod_proyecto + "','" + Proyecto.nom_proyecto + "','" + Proyecto.descripcion_proyecto + "','" + Proyecto.estado_proyecto + "')";
+                string consulta = "INSERT INTO proyecto(nom_proyecto,descripcion_proyecto,estado_proyecto) VALUES ('" + Proyecto.nom_proyecto + "','" + Proyecto.descripcion_proyecto + "','" + Proyecto.estado_proyecto + "')";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();

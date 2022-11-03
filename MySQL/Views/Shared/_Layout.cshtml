@@ -29,7 +29,7 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="TipoDocumento" asp-action="ListarTipoDocumento">Tipo de documento</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="TipoProducto" asp-action="ListarTipoProducto">Tipo de producto</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="TipoCampana" asp-action="ListarTipoCampana">Tipo de campaña</a></li>
-                                <li><a class="dropdown-item" href="#">Unidad de producto</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="TipoUnidad" asp-action="ListarTipoUnidad">Unidad de producto</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -37,7 +37,7 @@
                                 Productos
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item">Productos</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Producto" asp-action="ListarProducto">Productos</a></li>
                                 <li><a class="dropdown-item" href="#">Stock productos</a></li>
                             </ul>
                         </li>
@@ -49,7 +49,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Integrantes</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Integrante" asp-action="ListarIntegrante">Integrantes</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Pais" asp-action="ListarPais">Paises</a>
@@ -58,21 +58,32 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Ciudad" asp-action="ListarCiudad">Ciudades</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Puntos de recolección</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Puntos físicos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Puntos de donación</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Reportes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Entrega donación</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Recolección</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Donaciones</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Donacion</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="btn btn-outline-success ">Salir</a>
-                        </li>
-                    </ul>
+                        <ul class="ms-auto">
+                            <div class="btn-group dropstart ">
+                                <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="cambiar_contrasena.php">Modificar contraseña</a></li>
+                                    <li><a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a></li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </ul> 
                 </div>
             </div>
         </nav>

@@ -5,18 +5,18 @@ using System.Data;
 
 namespace MySQL.IDataAccess
 {
-    public class CiudadDatos
+    public class ProductoDatos
     {
-        public List<CiudadModel> Listar()
+        public List<ProductoModel> Listar()
         {
-            var Lista = new List<CiudadModel>();
+            var Lista = new List<ProductoModel>();
             MySqlDataReader Resultado;
             MySqlConnection Conn = new MySqlConnection();
 
             try
             {
                 Conn = Conexion.getConexion().CrearConexion();
-                string consulta = "SELECT ciudad.cod_ciudad, ciudad.nom_ciudad, ciudad.coordinador_ciudad, pais.nom_pais FROM ciudad INNER JOIN pais ON ciudad.fk_codpais = pais.cod_pais ORDER BY ciudad.cod_ciudad;";
+                string consulta = "SELECT producto.cod_producto, producto.nom_producto, tipo_producto.nom_tipoproducto FROM producto INNER JOIN tipo_producto ON producto.fk_codtipoproducto = tipo_producto.cod_tipoproducto ORDER BY producto.cod_producto;";
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
                 Conn.Open();
@@ -24,12 +24,11 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Lista.Add(new CiudadModel()
+                    Lista.Add(new ProductoModel()
                     {
-                        cod_ciudad = Convert.ToString(Resultado["cod_ciudad"]),
-                        nom_ciudad = Convert.ToString(Resultado["nom_ciudad"]),
-                        coordinador_ciudad = Convert.ToString(Resultado["coordinador_ciudad"]),
-                        fk_codpais = Convert.ToString(Resultado["nom_pais"])
+                        cod_producto = Convert.ToString(Resultado["cod_producto"]),
+                        nom_producto = Convert.ToString(Resultado["nom_producto"]),
+                        fk_codtipoproducto = Convert.ToString(Resultado["nom_tipoproducto"])
                     });
 
                 }
@@ -48,14 +47,14 @@ namespace MySQL.IDataAccess
 
         }
 
-        public CiudadModel Obtener(int cod_ciudad)
+        public ProductoModel Obtener(int cod_producto)
         {
-            var Ciudad = new CiudadModel();
+            var Producto = new ProductoModel();
             MySqlConnection Conn = new MySqlConnection();
             MySqlDataReader Resultado;
             try
             {
-                string consulta = "SELECT ciudad.cod_ciudad, ciudad.nom_ciudad, ciudad.coordinador_ciudad, pais.nom_pais FROM ciudad INNER JOIN pais ON ciudad.fk_codpais = pais.cod_pais WHERE cod_ciudad = '" + cod_ciudad + "' ORDER BY ciudad.cod_ciudad;";
+                string consulta = "SELECT producto.cod_producto, producto.nom_producto, tipo_producto.nom_tipoproducto FROM producto INNER JOIN tipo_producto ON producto.fk_codtipoproducto = tipo_producto.cod_tipoproducto WHERE producto.cod_producto = '"+Producto.cod_producto+"' ORDER BY producto.cod_producto;";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
@@ -64,10 +63,9 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Ciudad.cod_ciudad = Convert.ToString(Resultado["cod_ciudad"]);
-                    Ciudad.nom_ciudad = Convert.ToString(Resultado["nom_ciudad"]);
-                    Ciudad.coordinador_ciudad = Convert.ToString(Resultado["coordinador_ciudad"]);
-                    Ciudad.fk_codpais = Convert.ToString(Resultado["nom_pais"]);
+                    Producto.cod_producto = Convert.ToString(Resultado["cod_producto"]);
+                    Producto.nom_producto = Convert.ToString(Resultado["nom_producto"]);
+                    Producto.fk_codtipoproducto = Convert.ToString(Resultado["nom_tipoproducto"]);
                 };
 
             }
@@ -80,10 +78,10 @@ namespace MySQL.IDataAccess
                 if (Conn.State == ConnectionState.Open) Conn.Close();
             }
 
-            return Ciudad;
+            return Producto;
         }
 
-        public bool Guardar(CiudadModel Ciudad)
+        public bool Guardar(ProductoModel Producto)
         {
             bool rpta;
 
@@ -91,36 +89,7 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "INSERT INTO ciudad(nom_ciudad,coordinador_ciudad,fk_codpais) VALUES ('" + Ciudad.nom_ciudad + "','" + Ciudad.coordinador_ciudad + "','" + Ciudad.fk_codpais + "')";
-                Conn = Conexion.getConexion().CrearConexion();
-                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
-                Conn.Open();
-                Comand.ExecuteNonQuery();
-
-                rpta = true;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                rpta = false;
-            }
-            finally
-            {
-                if (Conn.State == ConnectionState.Open) Conn.Close();
-            }
-            return rpta;
-        }
-        
-        public bool Editar(CiudadModel Ciudad)
-        {
-            bool rpta;
-
-            MySqlConnection Conn = new MySqlConnection();
-
-            try
-            {
-                string consulta = "UPDATE ciudad SET nom_ciudad = '" + Ciudad.nom_ciudad + "', coordinador_ciudad='" + Ciudad.coordinador_ciudad + "', fk_codpais= '" + Ciudad.fk_codpais + "' WHERE cod_ciudad = '" + Ciudad.cod_ciudad + "';";
+                string consulta = "INSERT INTO producto(nom_producto,fk_codtipoproducto) VALUES ('" + Producto.nom_producto + "','" + Producto.fk_codtipoproducto + "')";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();
@@ -141,16 +110,45 @@ namespace MySQL.IDataAccess
             return rpta;
         }
 
-        public List<PaisModel> ListarPais()
+        public bool Editar(ProductoModel Producto)
         {
-            var ListaPais = new List<PaisModel>();
+            bool rpta;
+
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+                string consulta = "UPDATE producto SET nom_producto = '" + Producto.nom_producto + "', fk_codtipoproducto= '" + Producto.fk_codtipoproducto + "' WHERE cod_producto = '" + Producto.cod_producto + "';";
+                Conn = Conexion.getConexion().CrearConexion();
+                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
+                Conn.Open();
+                Comand.ExecuteNonQuery();
+
+                rpta = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                rpta = false;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+            return rpta;
+        }
+
+        public List<TipoProductoModel> ListarTipoProducto()
+        {
+            var ListaTipo = new List<TipoProductoModel>();
             MySqlDataReader Resultado;
             MySqlConnection Conn = new MySqlConnection();
 
             try
             {
                 Conn = Conexion.getConexion().CrearConexion();
-                string consulta = "SELECT cod_pais, nom_pais FROM pais;";
+                string consulta = "SELECT cod_tipoproducto, nom_tipoproducto FROM tipo_producto;";
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
                 Conn.Open();
@@ -158,15 +156,15 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    ListaPais.Add(new PaisModel()
+                    ListaTipo.Add(new TipoProductoModel()
                     {
-                        cod_pais = Convert.ToString(Resultado["cod_pais"]),
-                        nom_pais = Convert.ToString(Resultado["nom_pais"]),
+                        cod_tipoproducto = Convert.ToString(Resultado["cod_tipoproducto"]),
+                        nom_tipoproducto = Convert.ToString(Resultado["nom_tipoproducto"]),
                     });
 
                 }
 
-                return ListaPais;
+                return ListaTipo;
 
             }
             catch (Exception ex)
@@ -178,6 +176,5 @@ namespace MySQL.IDataAccess
                 if (Conn.State == ConnectionState.Open) Conn.Close();
             }
         }
-
     }
 }

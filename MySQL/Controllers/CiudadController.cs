@@ -14,7 +14,7 @@ namespace MySQL.Controllers
             var Lista = _CiudadDatos.Listar();
             return View(Lista);
         }
-        //Aqui voy 
+        
         public IActionResult CrearCiudad()
         {//Metodo para devolver la vista
             ViewBag.ListaPais = new SelectList(_CiudadDatos.ListarPais(),"cod_pais","nom_pais");
@@ -45,6 +45,7 @@ namespace MySQL.Controllers
 
         public IActionResult EditarCiudad(int cod_ciudad)
         {
+            ViewBag.ListaPais = new SelectList(_CiudadDatos.ListarPais(), "cod_pais", "nom_pais");
             var Ciudad = _CiudadDatos.Obtener(cod_ciudad);
             return View(Ciudad);
         }
@@ -61,7 +62,7 @@ namespace MySQL.Controllers
 
             if (respuesta)
             {
-                return RedirectToAction("ListarProyecto");
+                return RedirectToAction("ListarCiudad");
             }
             else
             {

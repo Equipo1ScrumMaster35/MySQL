@@ -87,7 +87,7 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "INSERT INTO pais(cod_pais,nom_pais) VALUES ('"+Pais.cod_pais+"','"+Pais.nom_pais+"')";
+                string consulta = "INSERT INTO pais(nom_pais) VALUES ('"+Pais.nom_pais+"')";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();

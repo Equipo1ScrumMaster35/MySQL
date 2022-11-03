@@ -5,18 +5,18 @@ using System.Data;
 
 namespace MySQL.IDataAccess
 {
-    public class CiudadDatos
+    public class TipoUnidadDatos
     {
-        public List<CiudadModel> Listar()
+        public List<TipoUnidadModel> Listar()
         {
-            var Lista = new List<CiudadModel>();
+            var Lista = new List<TipoUnidadModel>();
             MySqlDataReader Resultado;
             MySqlConnection Conn = new MySqlConnection();
 
             try
             {
                 Conn = Conexion.getConexion().CrearConexion();
-                string consulta = "SELECT ciudad.cod_ciudad, ciudad.nom_ciudad, ciudad.coordinador_ciudad, pais.nom_pais FROM ciudad INNER JOIN pais ON ciudad.fk_codpais = pais.cod_pais ORDER BY ciudad.cod_ciudad;";
+                string consulta = "SELECT * FROM unidad";
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
                 Conn.Open();
@@ -24,12 +24,10 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Lista.Add(new CiudadModel()
+                    Lista.Add(new TipoUnidadModel()
                     {
-                        cod_ciudad = Convert.ToString(Resultado["cod_ciudad"]),
-                        nom_ciudad = Convert.ToString(Resultado["nom_ciudad"]),
-                        coordinador_ciudad = Convert.ToString(Resultado["coordinador_ciudad"]),
-                        fk_codpais = Convert.ToString(Resultado["nom_pais"])
+                        cod_tipounidad = Convert.ToString(Resultado["cod_unidad"]),
+                        nom_tipounidad = Convert.ToString(Resultado["nom_unidad"])
                     });
 
                 }
@@ -48,14 +46,14 @@ namespace MySQL.IDataAccess
 
         }
 
-        public CiudadModel Obtener(int cod_ciudad)
+        public TipoUnidadModel Obtener(int cod_tipounidad)
         {
-            var Ciudad = new CiudadModel();
+            var TipoUnidad = new TipoUnidadModel();
             MySqlConnection Conn = new MySqlConnection();
             MySqlDataReader Resultado;
             try
             {
-                string consulta = "SELECT ciudad.cod_ciudad, ciudad.nom_ciudad, ciudad.coordinador_ciudad, pais.nom_pais FROM ciudad INNER JOIN pais ON ciudad.fk_codpais = pais.cod_pais WHERE cod_ciudad = '" + cod_ciudad + "' ORDER BY ciudad.cod_ciudad;";
+                string consulta = "SELECT * FROM unidad WHERE cod_unidad = '" + cod_tipounidad + "'";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Comand.CommandTimeout = 60;
@@ -64,10 +62,8 @@ namespace MySQL.IDataAccess
 
                 while (Resultado.Read())
                 {
-                    Ciudad.cod_ciudad = Convert.ToString(Resultado["cod_ciudad"]);
-                    Ciudad.nom_ciudad = Convert.ToString(Resultado["nom_ciudad"]);
-                    Ciudad.coordinador_ciudad = Convert.ToString(Resultado["coordinador_ciudad"]);
-                    Ciudad.fk_codpais = Convert.ToString(Resultado["nom_pais"]);
+                    TipoUnidad.cod_tipounidad = Convert.ToString(Resultado["cod_unidad"]);
+                    TipoUnidad.nom_tipounidad = Convert.ToString(Resultado["nom_unidad"]);
                 };
 
             }
@@ -80,10 +76,10 @@ namespace MySQL.IDataAccess
                 if (Conn.State == ConnectionState.Open) Conn.Close();
             }
 
-            return Ciudad;
+            return TipoUnidad;
         }
 
-        public bool Guardar(CiudadModel Ciudad)
+        public bool Guardar(TipoUnidadModel TipoUnidad)
         {
             bool rpta;
 
@@ -91,36 +87,7 @@ namespace MySQL.IDataAccess
 
             try
             {
-                string consulta = "INSERT INTO ciudad(nom_ciudad,coordinador_ciudad,fk_codpais) VALUES ('" + Ciudad.nom_ciudad + "','" + Ciudad.coordinador_ciudad + "','" + Ciudad.fk_codpais + "')";
-                Conn = Conexion.getConexion().CrearConexion();
-                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
-                Conn.Open();
-                Comand.ExecuteNonQuery();
-
-                rpta = true;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                rpta = false;
-            }
-            finally
-            {
-                if (Conn.State == ConnectionState.Open) Conn.Close();
-            }
-            return rpta;
-        }
-        
-        public bool Editar(CiudadModel Ciudad)
-        {
-            bool rpta;
-
-            MySqlConnection Conn = new MySqlConnection();
-
-            try
-            {
-                string consulta = "UPDATE ciudad SET nom_ciudad = '" + Ciudad.nom_ciudad + "', coordinador_ciudad='" + Ciudad.coordinador_ciudad + "', fk_codpais= '" + Ciudad.fk_codpais + "' WHERE cod_ciudad = '" + Ciudad.cod_ciudad + "';";
+                string consulta = "INSERT INTO unidad(nom_unidad) VALUES ('" + TipoUnidad.nom_tipounidad + "')";
                 Conn = Conexion.getConexion().CrearConexion();
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
                 Conn.Open();
@@ -141,43 +108,62 @@ namespace MySQL.IDataAccess
             return rpta;
         }
 
-        public List<PaisModel> ListarPais()
+        public bool Editar(TipoUnidadModel TipoUnidad)
         {
-            var ListaPais = new List<PaisModel>();
-            MySqlDataReader Resultado;
+            bool rpta;
+
             MySqlConnection Conn = new MySqlConnection();
 
             try
             {
+                string consulta = "UPDATE unidad SET nom_unidad = '" + TipoUnidad.nom_tipounidad + "' WHERE cod_unidad = '" + TipoUnidad.cod_tipounidad + "'";
                 Conn = Conexion.getConexion().CrearConexion();
-                string consulta = "SELECT cod_pais, nom_pais FROM pais;";
                 MySqlCommand Comand = new MySqlCommand(consulta, Conn);
-                Comand.CommandTimeout = 60;
                 Conn.Open();
-                Resultado = Comand.ExecuteReader();
+                Comand.ExecuteNonQuery();
 
-                while (Resultado.Read())
-                {
-                    ListaPais.Add(new PaisModel()
-                    {
-                        cod_pais = Convert.ToString(Resultado["cod_pais"]),
-                        nom_pais = Convert.ToString(Resultado["nom_pais"]),
-                    });
-
-                }
-
-                return ListaPais;
+                rpta = true;
 
             }
             catch (Exception ex)
             {
                 throw ex;
+                rpta = false;
             }
             finally
             {
                 if (Conn.State == ConnectionState.Open) Conn.Close();
             }
+            return rpta;
         }
 
+        public bool Eliminar(TipoUnidadModel TipoUnidad)
+        {
+            bool rpta;
+
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+                string consulta = "DELETE FROM unidad WHERE cod_unidad = '" + TipoUnidad.cod_tipounidad + "' ";
+                Conn = Conexion.getConexion().CrearConexion();
+                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
+                Conn.Open();
+                Comand.ExecuteNonQuery();
+
+                rpta = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                rpta = false;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+            return rpta;
+        }
     }
 }

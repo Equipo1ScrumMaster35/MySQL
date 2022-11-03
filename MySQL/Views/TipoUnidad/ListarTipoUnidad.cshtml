@@ -1,0 +1,37 @@
+﻿@model List<TipoUnidadModel>
+@{
+    ViewData["Title"] = "TipoUnidad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+        Lista tipo de unidad
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearTipoUnidad" asp-controller="TipoUnidad" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código tipo de unidad</th>
+                <th>Nombre tipo de unidad</th>
+                <th>Acción</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_tipounidad</td>
+                        <td>@item.nom_tipounidad</td>
+                        <td>
+                            <a asp-action="EditarTipoUnidad" asp-controller="TipoUnidad" asp-route-cod_tipounidad="@item.cod_tipounidad" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                            <a asp-action="EliminarTipoUnidad" asp-controller="TipoUnidad" asp-route-cod_tipounidad="@item.cod_tipounidad" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i> Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

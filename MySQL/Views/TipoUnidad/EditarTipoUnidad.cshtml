@@ -1,0 +1,23 @@
+﻿@model TipoUnidadModel
+@{
+    ViewData["Title"] = "EditarTipoUnidad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        Editar tipo de unidad
+    </div>
+    <div class="card-body">
+        <form asp-action="EditarTipoUnidad" asp-controller="TipoUnidad" method="post">
+            <input asp-for="cod_tipounidad" type="hidden" class="form-control">
+            <div class="form-group">
+                <label>Nombre tipo de unidad</label>
+                <input asp-for="nom_tipounidad" type="text" class="form-control">
+                <span asp-validation-for="nom_tipounidad" class="text-danger"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <a asp-action="ListarTipoUnidad" asp-controller="TipoUnidad" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

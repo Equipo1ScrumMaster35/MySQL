@@ -11,11 +11,6 @@
     <div class="card-body">
         <form asp-action="CrearPais" asp-controller="Pais" method="post">
             <div class="form-group">
-                <label>Código país</label>
-                <input asp-for="cod_pais" type="text" class="form-control">
-                <span asp-validation-for="cod_pais" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label>Nombre país</label>
                 <input asp-for="nom_pais" type="text" class="form-control">
                 <span asp-validation-for="nom_pais" class="text-danger"></span>

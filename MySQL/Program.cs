@@ -5,9 +5,6 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-//var dbConnectionString = builder.Configuration.GetSection("ConnectionStrings:CadenaMySQL").Value;
-
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

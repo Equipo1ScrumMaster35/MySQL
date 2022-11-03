@@ -19,6 +19,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXENyZWFyQ2l1ZGFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Ciudad/EditarCiudad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXEVkaXRhckNpdWRhZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Ciudad/ListarCiudad.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXExpc3RhckNpdWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -29,6 +33,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Integrante/CrearIntegrante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZWdyYW50ZVxDcmVhckludGVncmFudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Integrante/EditarIntegrante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZWdyYW50ZVxFZGl0YXJJbnRlZ3JhbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Integrante/ListarIntegrante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZWdyYW50ZVxMaXN0YXJJbnRlZ3JhbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Pais/CrearPais.cshtml]
@@ -45,6 +61,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Pais/ListarPais.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFpc1xMaXN0YXJQYWlzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Producto/CrearProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXJQcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Producto/EditarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyUHJvZHVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Producto/ListarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cTGlzdGFyUHJvZHVjdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Proyecto/CrearProyecto.cshtml]
@@ -113,6 +141,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/TipoProducto/ListarTipoProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1Byb2R1Y3RvXExpc3RhclRpcG9Qcm9kdWN0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/TipoUnidad/CrearTipoUnidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1VuaWRhZFxDcmVhclRpcG9VbmlkYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/TipoUnidad/EditarTipoUnidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1VuaWRhZFxFZGl0YXJUaXBvVW5pZGFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/TipoUnidad/EliminarTipoUnidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1VuaWRhZFxFbGltaW5hclRpcG9VbmlkYWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/TipoUnidad/ListarTipoUnidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb1VuaWRhZFxMaXN0YXJUaXBvVW5pZGFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/_ViewImports.cshtml]
