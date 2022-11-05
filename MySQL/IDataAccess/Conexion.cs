@@ -11,7 +11,7 @@ namespace MySQL.Data
 
         public MySqlConnection CrearConexion()
         {
-            MySqlConnection Cadena = new MySqlConnection();
+            MySqlConnection Cadena;
 
             try
             {
@@ -23,7 +23,7 @@ namespace MySQL.Data
 
                 Cadena = new MySqlConnection(root.GetConnectionString("CadenaMySQL"));
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
                 Cadena = null;
                 throw ex;

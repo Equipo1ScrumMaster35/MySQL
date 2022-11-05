@@ -1,0 +1,73 @@
+﻿@model PersonaModel
+@{
+    ViewData["Title"] = "RegistroDonante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registro Donante</h2>
+
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    Donación con registro
+                </div>
+                <div class="card-body">
+                    <form form asp-action="RegistroDonante" asp-controller="Recoleccion" method="post">
+                        <div class="form-group">
+                            <label>Tipo documento</label>
+                            <select asp-for="fk_codtipodocumento" class="form-control">
+                                <option value="1">Cedula de ciudadanía</option>
+                                <option value="2">NIT</option>
+                                <option value="3">Cedula de extranjeríativo</option>
+                                <span asp-validation-for="fk_codtipodocumento" class="text-danger"></span>
+                            </select>
+                                <!--<label>ViewBag.cod_pto</label>-->   
+                        </div>
+                        <div class="form-group">
+                            <label>Número de documento:</label>
+                            <input asp-for="doc_persona" type="text" class="form-control">
+                            <span asp-validation-for="doc_persona" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre completo o razón social</label>
+                            <input asp-for="nombrecompleto_persona" type="text" class="form-control">
+                            <span asp-validation-for="nombrecompleto_persona" class="text-danger"></span>
+                        </div>
+                        <br>
+                        <div class="btn-group" role="group" aria-label="">
+                            <button type="submit" class="btn btn-primary">Dona</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    Donación de manera anónima
+                </div>
+                <br>
+                <br>
+                <div class="card-body">
+                    <form method="POST">
+                        <div>
+                            <label for="">¿Deseas donar de manera anónima?</label>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="">Da clic en el botón de donar</label>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="btn-group" role="group" aria-label="">
+                            <button type="submit" class="btn btn-primary">Dona</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

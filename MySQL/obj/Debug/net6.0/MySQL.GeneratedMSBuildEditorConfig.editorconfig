@@ -27,6 +27,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXExpc3RhckNpdWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Donacion/EleccionPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYWNpb25cRWxlY2Npb25QdW50b0Zpc2ljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Donacion/RegistroDonante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYWNpb25cUmVnaXN0cm9Eb25hbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -85,6 +93,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Proyecto/ListarProyecto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cTGlzdGFyUHJveWVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Recoleccion/EleccionPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb2xlY2Npb25cRWxlY2Npb25QdW50b0Zpc2ljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Recoleccion/RecoleccionAnonimo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb2xlY2Npb25cUmVjb2xlY2Npb25Bbm9uaW1vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Recoleccion/RecoleccionRegistro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb2xlY2Npb25cUmVjb2xlY2Npb25SZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Recoleccion/RegistroDonante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjb2xlY2Npb25cUmVnaXN0cm9Eb25hbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Shared/Error.cshtml]

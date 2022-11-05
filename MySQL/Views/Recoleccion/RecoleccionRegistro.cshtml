@@ -1,0 +1,42 @@
+﻿@model DonacionModel
+@{
+    ViewData["Title"] = "Recoleccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Recolección Donación</h1>
+<div class="col-md-2"></div>
+<div class="col-md-7">
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <form asp-action="CrearProyecto" asp-controller="Proyecto" method="post">
+                <div class="form-group">
+                    <label>Fecha recolección</label>
+                    <input asp-for="fecha_donacion" type="date" class="form-control">
+                    <span asp-validation-for="fecha_donacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Observación</label>
+                    <input asp-for="observacion_donacion" type="text" class="form-control">
+                    <span asp-validation-for="observacion_donacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Producto</label>
+                    @Html.DropDownList("fk_codproducto", ViewBag.ListaProducto as SelectList,"Seleccione", new{@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Presentación</label>
+                    @Html.DropDownList("fk_codunidad", ViewBag.ListaUnidad as SelectList,"Seleccione", new{@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input type="number" class="form-control">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Donar</button>
+            </form>
+        </div>
+    </div>
+</div>
