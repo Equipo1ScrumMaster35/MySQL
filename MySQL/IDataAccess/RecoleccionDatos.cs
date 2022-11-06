@@ -139,6 +139,96 @@ namespace MySQL.IDataAccess
             return rpta;
         }
 
+        public bool RegistrarDonacion(DonacionModel Donacion, int doc_per, int cod_pto)
+        {
+            bool rpta;
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+               string consulta2 = "INSERT INTO donacion(fecha_donacion, observacion_donacion, estado_donacion, fk_docpersona, fk_codptofisico) VALUES ('" + Donacion.fecha_donacion + "','" + Donacion.observacion_donacion+ "','Recibido','"+ doc_per + "', '"+ cod_pto + "')";
+               Conn = Conexion.getConexion().CrearConexion();
+               MySqlCommand comand2 = new MySqlCommand(consulta2, Conn);
+               Conn.Open();
+               comand2.ExecuteNonQuery();
+               rpta = true;
+    
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                rpta = false;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+            return rpta;
+
+        }
+
+        public int UltimaDonacion()
+        {
+            int cod_don = 0;
+            MySqlDataReader Resultado;
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+                Conn = Conexion.getConexion().CrearConexion();
+                string consulta = "SELECT cod_donacion FROM donacion ORDER BY cod_donacion DESC LIMIT 1;";
+                MySqlCommand Comand = new MySqlCommand(consulta, Conn);
+                Comand.CommandTimeout = 60;
+                Conn.Open();
+                Resultado = Comand.ExecuteReader();
+
+                while (Resultado.Read())
+                {
+                    cod_don = Convert.ToInt32(Resultado["cod_donacion"]);
+                }
+
+                return cod_don;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+
+        }
+
+        public bool RegistrarDetalleDonacion(DonacionModel Donacion, int cod_don)
+        {
+            bool rpta;
+            MySqlConnection Conn = new MySqlConnection();
+
+            try
+            {
+                string consulta2 = "INSERT INTO detalle_donacion(cantidad, fk_codproducto, fk_codunidad, fk_coddonacion) VALUES ('" + Donacion.cantidad + "','" + Donacion.fk_codproducto + "','" + Donacion.fk_codunidad + "', '" + cod_don + "')";
+                Conn = Conexion.getConexion().CrearConexion();
+                MySqlCommand comand2 = new MySqlCommand(consulta2, Conn);
+                Conn.Open();
+                comand2.ExecuteNonQuery();
+                rpta = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                rpta = false;
+            }
+            finally
+            {
+                if (Conn.State == ConnectionState.Open) Conn.Close();
+            }
+            return rpta;
+
+        }
+
         public List<TipoDocumentoModel> ListarTipoDoc()
         {
             var ListaTipo = new List<TipoDocumentoModel>();

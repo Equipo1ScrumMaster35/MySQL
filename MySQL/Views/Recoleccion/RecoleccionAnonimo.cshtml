@@ -1,8 +1,48 @@
-﻿
+﻿@model DonacionModel
 @{
     ViewData["Title"] = "RecoleccionAnonimo";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>RecoleccionAnonimo</h1>
-
+<h1>Recolección Donación</h1>
+<div class="col-md-2"></div>
+<div class="col-md-7">
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <form asp-action="RecoleccionAnonimo" asp-controller="Recoleccion" method="post">
+                <div class="form-group">
+                    <label>Fecha recolección</label>
+                    <input asp-for="fecha_donacion" type="date" class="form-control" required>
+                    <span asp-validation-for="fecha_donacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Observación</label>
+                    <input asp-for="observacion_donacion" type="text" class="form-control" required>
+                    <span asp-validation-for="observacion_donacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Producto</label>
+                    @Html.DropDownList("fk_codproducto", ViewBag.ListaProducto as SelectList,"Seleccione", new{@class="form-control"})
+                </div>
+                <div class="form-group">
+                    <label>Presentación</label>
+                    <select asp-for="fk_codunidad" class="form-control" required>
+                        <option value="1">Caja</option>
+                        <option value="2">Paquete</option>
+                        <option value="3">Unidad</option>
+                        <span asp-validation-for="fk_codunidad" class="text-danger"></span>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input asp-for="cantidad" type="number" class="form-control" required>
+                    <span asp-validation-for="cantidad" class="text-danger"></span>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Donar</button>
+            </form>
+        </div>
+    </div>
+</div>

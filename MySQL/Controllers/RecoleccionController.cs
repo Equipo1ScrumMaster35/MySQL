@@ -10,6 +10,8 @@ namespace MySQL.Controllers
         RecoleccionDatos _RecoleccionDatos = new RecoleccionDatos();
         static int cod_pto;
         static int doc_per;
+        static int cod_ult;
+        static int doc_anonimo = 1;
         public IActionResult EleccionPuntoFisico()
         {
             var Lista = _RecoleccionDatos.ListarPuntoFisico();
@@ -50,9 +52,8 @@ namespace MySQL.Controllers
         {
             //ViewBag.Doc_persona = doc_per;
             //ViewBag.Cod_pto = cod_pto;
-            ViewBag.ListaUnidad = new SelectList(_RecoleccionDatos.ListarUnidad(), "cod_unidad", "nom_unidad");
+            //ViewBag.ListaUnidad = new SelectList(_RecoleccionDatos.ListarUnidad(), "cod_unidad", "nom_unidad");
             ViewBag.ListaProducto = new SelectList(_RecoleccionDatos.ListarProducto(), "cod_producto", "nom_producto");
-
 
             return View();
         }
@@ -60,19 +61,58 @@ namespace MySQL.Controllers
         [HttpPost]
         public IActionResult RecoleccionRegistro(DonacionModel Donacion)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var respuesta = _RecoleccionDatos.RegistrarDonacion(Donacion, doc_per, cod_pto);
+
+
+            if (respuesta)
+            {
+                cod_ult = _RecoleccionDatos.UltimaDonacion();
+
+                _RecoleccionDatos.RegistrarDetalleDonacion(Donacion, cod_ult);
+
+                return RedirectToAction("EleccionPuntoFisico");
+            }
+            else
+            {
+                return View();
+            }
         }
-
-
-
-
-
 
         public IActionResult RecoleccionAnonimo()
         {
+            ViewBag.ListaProducto = new SelectList(_RecoleccionDatos.ListarProducto(), "cod_producto", "nom_producto");
             return View();
         }
 
+        [HttpPost]
+        public IActionResult RecoleccionAnonimo(DonacionModel Donacion)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var respuesta = _RecoleccionDatos.RegistrarDonacion(Donacion, doc_anonimo, cod_pto);
+
+
+            if (respuesta)
+            {
+                cod_ult = _RecoleccionDatos.UltimaDonacion();
+
+                _RecoleccionDatos.RegistrarDetalleDonacion(Donacion, cod_ult);
+
+                return RedirectToAction("EleccionPuntoFisico");
+            }
+            else
+            {
+                return View();
+            }
+        }
 
     }
 }

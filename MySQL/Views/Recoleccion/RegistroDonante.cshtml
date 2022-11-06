@@ -20,7 +20,7 @@
                             <select asp-for="fk_codtipodocumento" class="form-control">
                                 <option value="1">Cedula de ciudadanía</option>
                                 <option value="2">NIT</option>
-                                <option value="3">Cedula de extranjeríativo</option>
+                                <option value="3">Cedula de extranjería</option>
                                 <span asp-validation-for="fk_codtipodocumento" class="text-danger"></span>
                             </select>
                                 <!--<label>ViewBag.cod_pto</label>-->   
@@ -51,7 +51,7 @@
                 <br>
                 <br>
                 <div class="card-body">
-                    <form method="POST">
+                    <form >
                         <div>
                             <label for="">¿Deseas donar de manera anónima?</label>
                         </div>
@@ -63,7 +63,7 @@
                         <br>
                         <br>
                         <div class="btn-group" role="group" aria-label="">
-                            <button type="submit" class="btn btn-primary">Dona</button>
+                            <a asp-action="RecoleccionAnonimo" asp-controller="Recoleccion" class="btn btn-primary">Dona</a>
                         </div>
                     </form>
                 </div>
