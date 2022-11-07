@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MySQL.IDataAccess;
 using MySQL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MySQL.Controllers
 {
+    [Authorize(Roles ="1,2")]
     public class RecoleccionController : Controller
     {
         RecoleccionDatos _RecoleccionDatos = new RecoleccionDatos();

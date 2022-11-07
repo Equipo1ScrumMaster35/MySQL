@@ -27,12 +27,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXExpc3RhckNpdWRhZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Donacion/EleccionPuntoFisico.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYWNpb25cRWxlY2Npb25QdW50b0Zpc2ljby5jc2h0bWw=
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/EntregaDonacion/DonacionRegistro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cmVnYURvbmFjaW9uXERvbmFjaW9uUmVnaXN0cm8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Donacion/RegistroDonante.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uYWNpb25cUmVnaXN0cm9Eb25hbnRlLmNzaHRtbA==
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/EntregaDonacion/EleccionPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cmVnYURvbmFjaW9uXEVsZWNjaW9uUHVudG9GaXNpY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/EntregaDonacion/RegistroDonante.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cmVnYURvbmFjaW9uXFJlZ2lzdHJvRG9uYW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Home/Index.cshtml]
@@ -41,6 +45,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/InicioSesion/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvU2VzaW9uXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Integrante/CrearIntegrante.cshtml]

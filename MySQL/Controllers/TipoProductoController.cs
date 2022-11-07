@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using MySQL.IDataAccess;
 using MySQL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MySQL.Controllers
 {
+    [Authorize(Roles = "1")]
     public class TipoProductoController : Controller
     {
         TipoProductoDatos _TipoProductoDatos = new TipoProductoDatos();

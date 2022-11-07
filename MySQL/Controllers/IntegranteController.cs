@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MySQL.IDataAccess;
 using MySQL.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace MySQL.Controllers
 {
+    [Authorize(Roles ="1")]
     public class IntegranteController : Controller
     {
         IntegranteDatos _IntegranteDatos = new IntegranteDatos();

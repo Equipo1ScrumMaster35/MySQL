@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using MySQL.IDataAccess;
 using MySQL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MySQL.Controllers
 {
+    [Authorize(Roles = "1")]
     public class TipoDocumentoController : Controller
     {
         TipoDocumentoDatos _TipoDocumentoDatos = new TipoDocumentoDatos();
