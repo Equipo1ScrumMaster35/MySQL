@@ -1,0 +1,46 @@
+﻿@model CampanaModel
+@{
+    ViewData["Title"] = "CrearCampana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Campaña
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearCampana" asp-controller="Campana" method="post">
+            <div class="form-group">
+                <label>Nombre campaña</label>
+                <input asp-for="nom_campana" type="text" class="form-control">
+                <span asp-validation-for="nom_campana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Motivo</label>
+                <input asp-for="motivo_campana" type="text" class="form-control">
+                <span asp-validation-for="motivo_campana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Fecha de inicio</label>
+                <input asp-for="fechainicio_campana" type="date" class="form-control">
+                <span asp-validation-for="fechainicio_campana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Fecha de fin</label>
+                <input asp-for="fechafin_campana" type="date" class="form-control">
+                <span asp-validation-for="fechafin_campana" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Proyecto</label>
+                @Html.DropDownList("fk_codproyecto", ViewBag.ListaProyecto as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label>Tipo de campaña</label>
+                @Html.DropDownList("fk_codtipocampana", ViewBag.ListaTipoCampana as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarCampana" asp-controller="Campana" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

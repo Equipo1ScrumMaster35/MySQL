@@ -1,0 +1,46 @@
+﻿@model List<PuntoFisicoModel>
+
+@{
+    ViewData["Title"] = "ListarPuntoFisico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de proyectos
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearPuntoFisico" asp-controller="PuntoFisico" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código punto</th>
+                <th>Nombre punto</th>
+                <th>Dirección</th>
+                <th>Estado</th>
+                <th>Responsable</th>
+                <th>Campaña</th>
+                <th>Ciudad</th>
+                <th>Acción</th>
+                <th></th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_ptofisico</td>
+                        <td>@item.nom_ptofisico</td>
+                        <td>@item.direccion_ptofisico</td>
+                        <td>@item.estado_ptofisico</td>
+                        <td>@item.fk_docintegrante</td>
+                        <td>@item.fk_codcampana</td>
+                        <td>@item.fk_codciudad</td>
+                        <td>
+                            <a asp-action="EditarPuntoFisico" asp-controller="PuntoFisico" asp-route-cod_ptofisico="@item.cod_ptofisico" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

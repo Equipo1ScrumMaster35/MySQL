@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MySQL.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"> 
+   
 </head>
 <body>
     <header>
@@ -48,7 +49,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Proyecto" asp-action="ListarProyecto">Proyectos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Campañas</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Campana" asp-action="ListarCampana">Campañas</a>
                         </li>
 
                         <li class="nav-item">
@@ -61,7 +62,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Ciudad" asp-action="ListarCiudad">Ciudades</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Puntos físicos</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="PuntoFisico" asp-action="ListarPuntoFisico">Puntos físicos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Reportes</a>
@@ -74,7 +75,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="EntregaDonacion" asp-action="EleccionPuntoFisico">Donación</a>
                         </li>
                         <ul class="ms-auto">
-                            <div class="btn-group dropstart ">
+                            <div class="btn-group dropstart">
                                 <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -82,7 +83,7 @@
                                     </svg>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="cambiar_contrasena.php">Modificar contraseña</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="CambiarContrasena" asp-action="CambiarContrasena">Modificar contraseña</a></li>
                                     <li><a class="dropdown-item" asp-area="" asp-controller="InicioSesion" asp-action="CerrarSesion">Cerrar sesión</a></li>
                                 </ul>
                             </div>

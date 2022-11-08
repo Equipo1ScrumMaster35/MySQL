@@ -20,9 +20,9 @@ namespace MySQL.Controllers
         }
 
         public IActionResult RegistroDonante(int cod_ptofisico)
-        {//Agregar la list dinamica, esta quemada en el codigo
+        {
             cod_pto = cod_ptofisico;
-            //ViewBag.ListaTipo = new SelectList(_RecoleccionDatos.ListarTipoDoc(), "cod_tipodocumento", "nom_tipodocumento");
+            ViewBag.ListaTipo = new SelectList(_DonacionDatos.ListarTipoDoc(), "cod_tipodocumento", "nom_tipodocumento");
             return View();
         }
 
@@ -30,6 +30,8 @@ namespace MySQL.Controllers
         public IActionResult RegistroDonante(PersonaModel Persona)
         {//Metodo que recibe un objeto y lo guarda en la DB
 
+            ViewBag.ListaTipo = new SelectList(_DonacionDatos.ListarTipoDoc(), "cod_tipodocumento", "nom_tipodocumento");
+            
             if (!ModelState.IsValid)
             {
                 return View();
@@ -51,9 +53,6 @@ namespace MySQL.Controllers
         }
         public IActionResult DonacionRegistro()
         {
-            //ViewBag.Doc_persona = doc_per;
-            //ViewBag.Cod_pto = cod_pto;
-            //ViewBag.ListaUnidad = new SelectList(_RecoleccionDatos.ListarUnidad(), "cod_unidad", "nom_unidad");
             ViewBag.ListaProducto = new SelectList(_DonacionDatos.ListarProducto(), "cod_producto", "nom_producto");
 
             return View();

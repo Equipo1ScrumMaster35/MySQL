@@ -15,6 +15,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ASUS\source\repos\MySQL\MySQL
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/CambiarContrasena/CambiarContrasena.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtYmlhckNvbnRyYXNlbmFcQ2FtYmlhckNvbnRyYXNlbmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Campana/CrearCampana.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuYVxDcmVhckNhbXBhbmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Campana/ListarCampana.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFuYVxMaXN0YXJDYW1wYW5hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Ciudad/CrearCiudad.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l1ZGFkXENyZWFyQ2l1ZGFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -101,6 +113,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Proyecto/ListarProyecto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJveWVjdG9cTGlzdGFyUHJveWVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/PuntoFisico/CrearPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVudG9GaXNpY29cQ3JlYXJQdW50b0Zpc2ljby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/PuntoFisico/EditarPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVudG9GaXNpY29cRWRpdGFyUHVudG9GaXNpY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/source/repos/MySQL/MySQL/Views/PuntoFisico/ListarPuntoFisico.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVudG9GaXNpY29cTGlzdGFyUHVudG9GaXNpY28uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/source/repos/MySQL/MySQL/Views/Recoleccion/EleccionPuntoFisico.cshtml]

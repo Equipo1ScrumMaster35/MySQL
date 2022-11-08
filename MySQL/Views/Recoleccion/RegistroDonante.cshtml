@@ -17,13 +17,7 @@
                     <form form asp-action="RegistroDonante" asp-controller="Recoleccion" method="post">
                         <div class="form-group">
                             <label>Tipo documento</label>
-                            <select asp-for="fk_codtipodocumento" class="form-control">
-                                <option value="1">Cedula de ciudadanía</option>
-                                <option value="2">NIT</option>
-                                <option value="3">Cedula de extranjería</option>
-                                <span asp-validation-for="fk_codtipodocumento" class="text-danger"></span>
-                            </select>
-                                <!--<label>ViewBag.cod_pto</label>-->   
+                            @Html.DropDownList("fk_codtipodocumento", ViewBag.ListaTipo as SelectList,"Seleccione", new{@class="form-control"})
                         </div>
                         <div class="form-group">
                             <label>Número de documento:</label>

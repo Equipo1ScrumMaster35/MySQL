@@ -1,0 +1,47 @@
+﻿@model List<CampanaModel>
+@{
+    ViewData["Title"] = "ListarCampana";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de campañas
+    </div>
+    <div class="card-body">
+        <a asp-action="CrearCampana" asp-controller="Campana" class="btn btn-success"><i class="bi bi-plus-circle-dotted"></i> Crear nuevo</a>
+        <hr />
+        <table class="table table-bordered">
+            <tr>
+                <th>Código campaña</th>
+                <th>Nombre campaña</th>
+                <th>Motivo</th>
+                <th>Fecha inicio</th>
+                <th>Fecha fin</th>
+                <th>Estado</th>
+                <th>Proyecto</th>
+                <th>Tipo campaña</th>
+                <th>Acción</th>
+            </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.cod_campana</td>
+                        <td>@item.nom_campana</td>
+                        <td>@item.motivo_campana</td>
+                        <td>@item.fechainicio_campana</td>
+                        <td>@item.fechafin_campana</td>
+                        <td>@item.estado_campana</td>
+                        <td>@item.fk_codproyecto</td>
+                        <td>@item.fk_codtipocampana</td>
+                        <td>
+                            <a asp-action="EditarCampana" asp-controller="Campana" asp-route-cod_campana="@item.cod_campana" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

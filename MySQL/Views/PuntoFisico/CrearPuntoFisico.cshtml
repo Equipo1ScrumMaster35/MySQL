@@ -1,0 +1,40 @@
+﻿@model PuntoFisicoModel
+@{
+    ViewData["Title"] = "CrearPuntoFisico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Crear Punto físico
+    </div>
+    <div class="card-body">
+        <form asp-action="CrearPuntoFisico" asp-controller="PuntoFisico" method="post">
+            <div class="form-group">
+                <label>Nombre punto</label>
+                <input asp-for="nom_ptofisico" type="text" class="form-control">
+                <span asp-validation-for="nom_ptofisico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Dirección</label>
+                <input asp-for="direccion_ptofisico" type="text" class="form-control">
+                <span asp-validation-for="direccion_ptofisico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Responsable</label>
+                @Html.DropDownList("fk_docintegrante", ViewBag.ListaIntegrante as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label>Campaña</label>
+                @Html.DropDownList("fk_codcampana", ViewBag.ListaCampana as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <div class="form-group">
+                <label>Ciudad</label>
+                @Html.DropDownList("fk_codciudad", ViewBag.ListaCiudad as SelectList,"Seleccione", new{@class="form-control"})
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="ListarPuntoFisico" asp-controller="PuntoFisico" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
